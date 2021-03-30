@@ -53,4 +53,34 @@ export const updateMedico = async (req: Request, res: Response): Promise<void> =
     }
 }
 
+export const getMedico = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const {
+            params: { id }
+            
+        } = req
+        const modMed = await medicoSchema.findById({ _id: id })
+        res.status(200).json({
+            modMed
+        })
 
+    } catch (error) {
+        console.log(error)
+        throw error
+    }
+}
+export const delMedico = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const {
+            params: { id }
+        } = req
+        const modMed = await medicoSchema.findByIdAndDelete({ _id: id })
+        res.status(200).json({
+            modMed
+        })
+
+    } catch (error) {
+        console.log(error)
+        throw error
+    }
+}

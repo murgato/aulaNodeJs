@@ -5,8 +5,8 @@ const routers: Router = Router()
 
 routers.get('/getAll', ControllerMedico.getMedicos)
 routers.put('/create', ControllerMedico.addMedico)
-//routers.get('/getOne', ControllerMedico.getMedico)
+routers.get('/getOne/:id', ControllerMedico.getMedico)
 routers.post('/update/:id', ControllerMedico.updateMedico)
-//routers.delete('/delete', ControllerMedico.delMedico)
+routers.delete('/delete/:id', ControllerMedico.delMedico)
 
 module.exports = routers
